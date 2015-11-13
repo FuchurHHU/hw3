@@ -1,7 +1,7 @@
 #include <cmath>
 #include <iostream>
 #include <cstdlib>
-
+#include <time.h>
 using namespace std;
 //--------------------------------------------------
 // plenty of lines here
@@ -10,8 +10,8 @@ using namespace std;
 void Zufallszahlen(const int N, double* p){
   for (int i=0;i<N;i++){ 
    
-    p[i] = rand(); //int rand () gab bei mir eine Fehlermeldung
-   
+    p[i] = rand() % 101  ; //Zahl im Intervall von 0-100
+    p[i] = p[i]/100;
   }
    
    
@@ -49,6 +49,7 @@ double Var(double* p, const int N, double m){
 
 
 int main(){
+   srand(time(NULL));
    const int N = 100;
    double p[N]; //array with N values  
    double mean, var;
